@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+    <div class="category-detail">
+        <h3>{{ object.category_name }}</h3>
+        <p>{{ object.category_alt_description }}</p>
+        <div class="work-list">
+          {% for project in projects %}
+          <div class="work">
+            <img src="{{ category.category_image.url }}"/>
+            <div class="layer">
+              <h3>{{ project.project_name }}</h3>
+              <p>
+                {{ project.project_description }}
+              </p>
+              <small>View Project Demo</small>
+              <a href="{{ project.project_url }}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square fa-xl"></i></a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+    </div>
+    <a href='{% url "home" %}#portfolio' class="btn">Back to Project Collection</a>
+   
+</div>
+{% endblock content %}

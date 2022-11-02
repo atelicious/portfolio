@@ -20,167 +20,42 @@
 
           <div id="portfolio">
             <div class="container">
-              <h1 class="subtitle">My Work</h1>
+              <h1 class="subtitle">My Project Collection</h1>
               <div class="work-list">
+                {% for category in categories %}
                 <div class="work">
-                  <img src="https://github.com/atelicious/projects-under-rwd-fcc/blob/main/Tribute%20Page/tp-thumbnail.png?raw=true"/>
+                  <img src="{{ category.category_image.url }}"/>
                   <div class="layer">
-                    <h3>Project 1</h3>
+                    <h3>{{ category.category_name }}</h3>
                     <p>
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
-                      ex ea commodo consequat.
+                      {{ category.category_description }}
                     </p>
                     <small>View Collection</small>
-                    <a href=""><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <a href="{% url 'collection-details' category.id %}"><i class="fa-solid fa-arrow-up-right-from-square fa-xl"></i></a>
                   </div>
                 </div>
-                <div class="work">
-                  <img src="https://github.com/atelicious/projects-under-rwd-fcc/blob/main/Tribute%20Page/tp-thumbnail.png?raw=true"/>
-                  <div class="layer">
-                    <h3>Project 1</h3>
-                    <p>
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
-                      ex ea commodo consequat.
-                    </p>
-                    <small>View Collection</small>
-                    <a href=""><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                  </div>
-                </div>
-                <div class="work">
-                  <img src="https://github.com/atelicious/projects-under-rwd-fcc/blob/main/Tribute%20Page/tp-thumbnail.png?raw=true"/>
-                  <div class="layer">
-                    <h3>Project 1</h3>
-                    <p>
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
-                      ex ea commodo consequat.
-                    </p>
-                    <small>View Collection</small>
-                    <a href=""><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                  </div>
-                </div>
-                <div class="work">
-                  <img src="https://github.com/atelicious/projects-under-rwd-fcc/blob/main/Tribute%20Page/tp-thumbnail.png?raw=true"/>
-                  <div class="layer">
-                    <h3>Project 1</h3>
-                    <p>
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
-                      ex ea commodo consequat.
-                    </p>
-                    <small>View Collection</small>
-                    <a href=""><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                  </div>
-                </div>
-                <div class="work">
-                  <img src="https://github.com/atelicious/projects-under-rwd-fcc/blob/main/Tribute%20Page/tp-thumbnail.png?raw=true"/>
-                  <div class="layer">
-                    <h3>Project 1</h3>
-                    <p>
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
-                      ex ea commodo consequat.
-                    </p>
-                    <small>View Collection</small>
-                    <a href=""><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                  </div>
-                </div>
-                <div class="work">
-                  <img src="https://github.com/atelicious/projects-under-rwd-fcc/blob/main/Tribute%20Page/tp-thumbnail.png?raw=true"/>
-                  <div class="layer">
-                    <h3>Project 1</h3>
-                    <p>
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
-                      ex ea commodo consequat.
-                    </p>
-                    <small>View Collection</small>
-                    <a href=""><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                  </div>
-                </div>
+                {% endfor %}
               </div>
             </div>
-            <a href='' class="btn">View More Projects</a>
+            <a target="_blank" href='https://github.com/atelicious' class="btn">View More Projects</a>
           </div>
 
-          <div id="portfolio">
+          <div id="certificates">
             <div class="container">
               <h1 class="subtitle">Certificates</h1>
-              <div class="work-list">
-                <div class="work">
-                  <img src="https://github.com/atelicious/sample/blob/main/SCWP.png?raw=true"/>
+              <div class="cert-list">
+                {% for certificate in certificates %}
+                <div class="cert">
+                  <img src="{{ certificate.certificate_image.url }}"/>
                   <div class="layer">
-                    <h3>Project 1</h3>
-                    <p>
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                      dolore magna aliqua.
+                    <p class="cert-desc">
+                      {{ certificate.certificate_description }}
                     </p>
-                    <small>View Collection</small>
-                    <a href=""><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <small>View Live Certificate</small>
+                    <a href="{{ certificate.certificate_url }}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                   </div>
                 </div>
-                <div class="work">
-                  <img src="https://github.com/atelicious/sample/blob/main/SCWP.png?raw=true"/>
-                  <div class="layer">
-                    <h3>Project 1</h3>
-                    <p>
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                      dolore magna aliqua.
-                    </p>
-                    <small>View Collection</small>
-                    <a href=""><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                  </div>
-                </div>
-                <div class="work">
-                  <img src="https://github.com/atelicious/sample/blob/main/SCWP.png?raw=true"/>
-                  <div class="layer">
-                    <h3>Project 1</h3>
-                    <p>
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                      dolore magna aliqua.
-                    </p>
-                    <small>View Collection</small>
-                    <a href=""><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                  </div>
-                </div>
-                <div class="work">
-                  <img src="https://github.com/atelicious/sample/blob/main/SCWP.png?raw=true"/>
-                  <div class="layer">
-                    <h3>Project 1</h3>
-                    <p>
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                      dolore magna aliqua.
-                    </p>
-                    <small>View Collection</small>
-                    <a href=""><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                  </div>
-                </div>
-                <div class="work">
-                  <img src="https://github.com/atelicious/sample/blob/main/SCWP.png?raw=true"/>
-                  <div class="layer">
-                    <h3>Project 1</h3>
-                    <p>
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                      dolore magna aliqua.
-                    </p>
-                    <small>View Collection</small>
-                    <a href=""><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                  </div>
-                </div>
-                <div class="work">
-                  <img src="https://github.com/atelicious/sample/blob/main/SCWP.png?raw=true"/>
-                  <div class="layer">
-                    <h3>Project 1</h3>
-                    <p>
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                      dolore magna aliqua.
-                    </p>
-                    <small>View Collection</small>
-                    <a href=""><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                  </div>
-                </div>
+                {% endfor %}
               </div>
             </div>
           </div>
@@ -189,16 +64,12 @@
             <div class="container">
               <div class="row">
                 <div class="about-col-1">
-                  <img class='img-fluid' src="{% static 'images/about.png' %}">
+                  <img class='img-fluid' src="{% static 'images/about-2.png' %}">
                 </div>
                 <div class="about-col-2">
                   <h1 class="subtitle">About Me</h1>
-                  <p>
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate 
-                    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
-                    in culpa qui officia deserunt mollit anim id est laborum."
+                  <p class="text-wrap">
+                    {{ user.about_me }}
                   </p>
 
                   <div class="tab-titles">
@@ -208,24 +79,36 @@
                   </div>
 
                   <div class="tab-contents active-tab" id="skills">
-                    <p><span>Programming Languages</span><br>Python Js</p>
-                    <p><span>Programming Languages</span><br>Python Js</p>
-                    <p><span>Programming Languages</span><br>Python Js</p>
+                    <p><span>Programming Languages</span><br>Python, JavaScript, HTML5, CSS3, SQL</p>
+                    <p><span>Frameworks / Libraries</span><br>Django, Flask, Numpy, Matplotlib, Seaborn, React</p>
+                    <p><span>Versioning Tools</span><br>Git, Github</p>
                   </div>
                   <div class="tab-contents" id="experience">
-                    <p><span>2020-2020</span><br>Company A</p>
-                    <p><span>2020-2020</span><br>Company A</p>
-                    <p><span>2020-2020</span><br>Company A</p>
+                    <p><span>October 2021 - Present</span><br>Data Preparation and Extraction Freelancer | Clickworker</p>
+                    <p><span>January 2021 - June 2021</span><br>Software Engineer | Adipster Tech Limited</p>
+                    <p><span>June 2019 - December 2020</span><br>Data Analyst | Top Market Marketing</p>
                   </div>
                   <div class="tab-contents" id="education">
-                    <p><span>2020-2020</span><br>School A</p>
-                    <p><span>2020-2020</span><br>School A</p>
-                    <p><span>2020-2020</span><br>School A</p>
+                    <p><span>2014 - 2019</span><br>BS Civil Engineering | University of Baguio</p>
+                    <p><span>2010 - 2014</span><br>Secondary Education | Liceo de San Pablo</p>
                   </div>
 
                 </div>
               </div>
             </div>
+          </div>
+
+          <div class="bg-social container" id='social'>
+            <h2 class="subtitle">Social Media</h2>
+            <p>You can find me on</p>
+            <ul class='social-links'>
+              <li><a href="https://www.linkedin.com/in/elhy-tablazon" target='_blank' class="fab fa-linkedin" id='profile-link'></a></li>
+              <li><a href="https://github.com/atelicious" target='_blank' class="fab fa-github" id='profile-link'></a></li>
+              <li><a href="https://www.freecodecamp.org/atelicious" target='_blank' class="fab fa-free-code-camp" id='profile-link'></a></li>
+              <li><a href="https://codepen.io/atelicious" target='_blank' class="fab fa-codepen" id='profile-link'></a></li>
+              <li><a href="https://repl.it/@atelicious" target='_blank' class="fab fa-replyd" id='profile-link'></a></li>
+              <li><a href="mailto:elhytablazon@yahoo.com.ph" target='_blank' class="fas fa-at" id='profile-link'></a></li>
+            </ul>
           </div>
  
 

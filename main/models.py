@@ -20,22 +20,35 @@ class Category(models.Model):
         ('FCC Back End Development and APIs', 'FCC Back End Development and APIs'),
         ('FCC Scientific Computing with Python', 'FCC Scientific Computing with Python'),
         ('FCC Data Analysis with Python', 'FCC Data Analysis with Python'),
-        ('MJ Marketplace', 'MJ Marketplace')
+        ('M&J Marketplace', 'M&J Marketplace')
     ]
-    user = models.OneToOneField(ondelete = models.SET_NULL, null = True, blank = True)
-    category_name = models.CharField(max_length = 50, null = True)
+    user = models.ForeignKey(User, on_delete = models.SET_NULL, null = True, blank = True)
+    category_name = models.CharField(choices = names, max_length = 50, null = True)
     category_description = models.TextField(null = True, blank = False)
     category_image = models.ImageField(null = True, blank = True, upload_to='category')
+    category_alt_description = models.TextField(null = True, blank = False)
 
     def __str__(self):
         return f'{self.category_name}'
 
 class Project(models.Model):
-    user = models.OneToOneField(User, ondelete=models.SET_NULL, null = True, blank = True)
-    category = models.OneToOneField(Category, ondelete=models.SET_NULL, null = True, blank = True)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null = True, blank = True)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null = True, blank = True)
     project_name = models.CharField(max_length = 50, null = True)
     project_description = models.TextField(null = True, blank = False)
     project_image = models.ImageField(null = True, blank = True, upload_to='project')
+    project_url = models.CharField(max_length = 100, null = True)
 
     def __str__(self):
         return f'{self.project_name}'
+
+class Certificate(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null = True, blank = True)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null = True, blank = True)
+    certificate_name = models.CharField(max_length = 50, null = True)
+    certificate_description = models.TextField(null = True, blank = False)
+    certificate_image = models.ImageField(null = True, blank = True, upload_to='certificate')
+    certificate_url = models.CharField(max_length = 100, null = True)
+
+    def __str__(self):
+        return f'{self.certificate_name}'

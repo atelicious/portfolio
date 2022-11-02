@@ -4,7 +4,7 @@
 <html>
     <head>
         <title>{{ title }}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -15,23 +15,23 @@
 
     <body>
         <nav class="navbar navbar-expand-lg ">
-            <a class="navbar-brand" href="#"><img src="{% static 'images/logo.png' %}"></a>
+            <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span><i class="fa-solid fa-bars"></i></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
               <ul class="navbar-nav">
                 <li class="nav-item ">
-                  <a class="nav-link head" href="#">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link head" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link head" href="#">Projects</a>
+                  <a class="nav-link head" href="{% url 'home' %}#portfolio">Projects</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link head" href="#">Certifications</a>
+                  <a class="nav-link head" href="{% url 'home' %}#certificates">Certificates</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link head" href="#">Contact Me</a>
+                  <a class="nav-link head" href="{% url 'home' %}#social">Contact Me</a>
                 </li>
               </ul>
             </div>
@@ -40,18 +40,6 @@
         {% block content %}
         {%endblock content %}
 
-          </div>
-          <div class="bg-social container" id='social'>
-            <h2 class="subtitle">Social Media</h2>
-            <p>You can find me on</p>
-            <ul class='social-links'>
-              <li><a href="https://www.linkedin.com/in/elhy-tablazon" target='_blank' class="fab fa-linkedin" id='profile-link'></a></li>
-              <li><a href="https://github.com/atelicious" target='_blank' class="fab fa-github" id='profile-link'></a></li>
-              <li><a href="https://www.freecodecamp.org/atelicious" target='_blank' class="fab fa-free-code-camp" id='profile-link'></a></li>
-              <li><a href="https://codepen.io/atelicious" target='_blank' class="fab fa-codepen" id='profile-link'></a></li>
-              <li><a href="https://repl.it/@atelicious" target='_blank' class="fab fa-replyd" id='profile-link'></a></li>
-              <li><a href="mailto:elhytablazon@yahoo.com.ph" target='_blank' class="fas fa-at" id='profile-link'></a></li>
-            </ul>
           </div>
           
           <footer>
