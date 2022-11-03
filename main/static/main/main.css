@@ -179,11 +179,22 @@ nav img{
   color: #fff;
 }
 
-.btn:hover {
-  background-color: #ff004f;
+.btn-2{
+  display: block;
+  width: fit-content;
+  border: 1px solid #ff004f;
+  padding: 5px 5px;
+  border-radius: 6px;
+  text-decoration: none!important;
+  color: #fff;
 }
 
-.btn:active {
+.btn:hover,.btn-2:hover {
+  background-color: #ff004f;
+  color:#fff;
+}
+
+.btn:active,.btn-2:active {
   transform: translate(2px, 2px);
 }
 
@@ -453,7 +464,6 @@ footer {
   .subtitle {
     font-size: 20px;
   }
-
   .about-col-1, .about-col-2 {
     flex-basis: 100%;
     margin: 20px;
@@ -504,6 +514,14 @@ footer {
 
   .subtitle {
     font-size: 25px;
+  }
+
+  .layer h3 {
+    font-size: 20px;
+  }
+
+  .layer p {
+    font-size: 13px;
   }
   .about-col-1, .about-col-2 {
     flex-basis: 100%;

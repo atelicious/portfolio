@@ -11,11 +11,19 @@ def home(request):
     categories = Category.objects.all()
     certificates = Certificate.objects.all()
 
+    standalone = categories[0]
+    multiproject = categories[1:len(categories)]
+    print(standalone, multiproject)
+
+    projects = {category:category.project_set.all() for category in multiproject}
+    print(projects)
     context = {
-        'title': 'Welcome',
+        'title': 'My Portfolio Website',
         'user' :user,
-        'categories': categories,
-        'certificates': certificates
+        'categories': multiproject,
+        'certificates': certificates,
+        'standalone': standalone,
+        'projects': projects
     }
 
     return render(request, 'main/home.html', context)
