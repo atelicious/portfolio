@@ -13,14 +13,10 @@ def home(request):
 
     standalone = categories[0]
     multiproject = categories[1:len(categories)]
-    print(standalone, multiproject)
-
     projects = {category:category.project_set.all() for category in multiproject}
-    print(projects)
     context = {
         'title': 'My Portfolio Website',
         'user' :user,
-        'categories': multiproject,
         'certificates': certificates,
         'standalone': standalone,
         'projects': projects

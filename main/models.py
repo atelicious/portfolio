@@ -8,6 +8,7 @@ class User(models.Model):
     first_name = models.CharField(max_length = 50, null = True)
     last_name = models.CharField(max_length = 50, null = True)
     about_me = models.TextField(null = True, blank = False)
+    resume = models.FileField(null = True, blank = True, upload_to = 'resume')
 
     def __str__(self):
         return f'{self.first_name}{self.last_name}'
