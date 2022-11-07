@@ -117,6 +117,7 @@ nav img{
   max-width: 330px;
   max-height: 410px;
   margin: 20px;
+  transition: transform 0.5s;
 }
 
 
@@ -125,11 +126,11 @@ nav img{
   max-height: 100%;
   border-radius: 10px;
   display: block;
-  transition: transform 0.5s;
+  transform: scale(1.02);
 }
 
-.work:hover img{
-  transform: scale(1.05);
+.work:hover{
+  transform: scale(1.02);
 }
 
 .layer {
